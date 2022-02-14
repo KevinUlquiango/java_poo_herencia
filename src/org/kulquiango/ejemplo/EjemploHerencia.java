@@ -12,15 +12,15 @@ public class EjemploHerencia {
         alumno.setNotaMatematica(4.9);
 
         AlumnoInternacional alumnoInternacional = new AlumnoInternacional();
-       alumnoInternacional.setNombre("Peter");
-       alumnoInternacional.setApellido("Parker");
-       alumnoInternacional.setPais("Australia");
-       alumnoInternacional.setEdad(15);
-       alumnoInternacional.setInstitucion("Instituto Nacional");
-       alumnoInternacional.setNotaIdiomas(6.8);
-       alumnoInternacional.setNotaCastellano(6.2);
-       alumnoInternacional.setNotaHistoria(5.8);
-       alumnoInternacional.setNotaMatematica(6.5);
+        alumnoInternacional.setNombre("Peter");
+        alumnoInternacional.setApellido("Parker");
+        alumnoInternacional.setPais("Australia");
+        alumnoInternacional.setEdad(15);
+        alumnoInternacional.setInstitucion("Instituto Nacional");
+        alumnoInternacional.setNotaIdiomas(6.8);
+        alumnoInternacional.setNotaCastellano(6.2);
+        alumnoInternacional.setNotaHistoria(5.8);
+        alumnoInternacional.setNotaMatematica(6.5);
 
         Profesor profesor = new Profesor();
         profesor.setNombre("Luci");
@@ -33,7 +33,8 @@ public class EjemploHerencia {
         org.kulquiango.pooherencia.Alumno es una clase hija de la clase padre org.kulquiango.pooherencia.Persona
         org.kulquiango.pooherencia.Persona es una clase hija de la clase padre java.lang.Object
         */
-        Class clase = alumnoInternacional.getClass();
+        /*
+          Class clase = alumnoInternacional.getClass();
         while (clase.getSuperclass() != null){
             String hija = clase.getName();
             String padre = clase.getSuperclass().getName();
@@ -41,6 +42,7 @@ public class EjemploHerencia {
             clase = clase.getSuperclass();
         }
 
+        **/
         System.out.println("-----------------------------------------------------------------");
         System.out.println(alumno);
         System.out.println(profesor);

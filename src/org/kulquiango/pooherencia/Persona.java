@@ -1,5 +1,7 @@
 package org.kulquiango.pooherencia;
 
+import com.sun.source.doctree.SeeTree;
+
 public class Persona {
     /*
     protected es usado mas para la herencia, pero es mejor que este privado
@@ -9,6 +11,21 @@ public class Persona {
     private String apellido;
     private String email;
     private int edad;
+
+    public Persona() {
+        System.out.println("Persona Inicializando constructor");
+    }
+
+    public Persona(String nombre,String apellido){
+        this.nombre = nombre;
+        this.apellido = apellido;
+    }
+
+    public Persona(String nombre, String apellido, int edad) {
+        this(nombre,apellido);
+        this.edad = edad;
+    }
+
 
     public String getNombre() {
         return nombre;
