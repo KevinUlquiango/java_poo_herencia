@@ -16,13 +16,13 @@ public class Persona {
         System.out.println("Persona Inicializando constructor");
     }
 
-    public Persona(String nombre,String apellido){
+    public Persona(String nombre, String apellido) {
         this.nombre = nombre;
         this.apellido = apellido;
     }
 
     public Persona(String nombre, String apellido, int edad) {
-        this(nombre,apellido);
+        this(nombre, apellido);
         this.edad = edad;
     }
 
@@ -59,5 +59,17 @@ public class Persona {
         this.edad = edad;
     }
 
+    public String saludar() {
+        return "Hola que tal";
+    }
 
+    @Override
+    public String toString() {
+        StringBuilder imprimirDatos = new StringBuilder();
+        imprimirDatos.append("Nombre: " + this.nombre + "\n")
+                .append("Apellido: " + this.apellido + "\n")
+                .append("Email: " + this.email + "\n")
+                .append("Edad: " + this.edad + "\n");
+        return imprimirDatos.toString();
+    }
 }

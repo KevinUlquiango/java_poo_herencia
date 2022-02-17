@@ -1,6 +1,6 @@
 package org.kulquiango.pooherencia;
 
-public class AlumnoInternacional extends Alumno{
+public final class AlumnoInternacional extends Alumno{
     private String pais;
     private double notaIdiomas;
 
@@ -35,17 +35,23 @@ public class AlumnoInternacional extends Alumno{
 
     @Override
     public String toString() {
+        String datosPersonales = super.toString();
         StringBuilder datosDelAlumnoInternacional = new StringBuilder();
-        datosDelAlumnoInternacional.append("\t" + "Datos del Alumno Internacinal" +  "\n")
-                .append("Nombre: " + this.getNombre() + "\n")
-                .append("Apellido: " + this.getApellido() + "\n")
-                .append("Institucion: " + this.getInstitucion() + "\n")
-                .append("Pais de Origen: " + this.pais + "\n")
-                .append("Nota"+ "\n")
-                .append("\t" + "Matematicas: " + this.getNotaMatematica() + "\n")
-                .append("\t" + "Castelllano: " + this.getNotaCastellano() + "\n")
+        datosDelAlumnoInternacional.append(datosPersonales)
                 .append("\t" + "Idiomas: " + this.notaIdiomas + "\n")
-                .append("\t" + "Historia: " + this.getNotaHistoria() + "\n");
+                .append("Pais de Origen: " + this.pais + "\n");
+
         return datosDelAlumnoInternacional.toString();
+    }
+
+    @Override
+    public String saludar() {
+        return "Hola soy un alumno extrangero del pais " + getPais() + ", mi nombre es " + getNombre();
+    }
+
+    @Override
+    public double calcularPromedio() {
+        double calificaciones = super.calcularPromedio() *3 ;
+        return (calificaciones + notaIdiomas)/4;
     }
 }

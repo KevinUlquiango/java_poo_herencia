@@ -25,7 +25,7 @@ public class Alumno extends Persona {
     }
 
     public Alumno(String nombre, String apellido, int edad, String institucion, double notaMatematica, double notaCastellano, double notaHistoria) {
-        this(nombre, apellido, edad,institucion);
+        this(nombre, apellido, edad, institucion);
         this.notaMatematica = notaMatematica;
         this.notaCastellano = notaCastellano;
         this.notaHistoria = notaHistoria;
@@ -65,15 +65,32 @@ public class Alumno extends Persona {
 
     @Override
     public String toString() {
+        String datosPersonales= super.toString();
         StringBuilder datosDelAlumno = new StringBuilder();
-        datosDelAlumno.append("\t" + "Datos del Alumno" +  "\n")
-                .append("Nombre: " + this.getNombre() + "\n")
-                .append("Apellido: " + this.getApellido() + "\n")
+        if (this instanceof  AlumnoInternacional){
+            datosDelAlumno.append("\t" + "Datos del Alumno Internacional" + "\n");
+        }else
+        {
+            datosDelAlumno.append("\t" + "Datos del Alumno" + "\n");
+        }
+
+        datosDelAlumno.append(datosPersonales)
                 .append("Institucion: " + this.institucion + "\n")
-                .append("Nota"+ "\n")
+                .append("Nota" + "\n")
                 .append("\t" + "Matematicas: " + this.notaMatematica + "\n")
                 .append("\t" + "Castelllano: " + this.notaCastellano + "\n")
                 .append("\t" + "Historia: " + this.notaHistoria + "\n");
         return datosDelAlumno.toString();
+    }
+
+
+    @Override
+    public String saludar() {
+        String saludar = super.saludar();
+        return saludar + " soy alumno y mi nombre es: " + getNombre();
+    }
+
+    public double calcularPromedio() {
+        return (notaHistoria + notaCastellano + notaMatematica) / 3;
     }
 }

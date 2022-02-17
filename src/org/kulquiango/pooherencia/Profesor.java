@@ -1,6 +1,6 @@
 package org.kulquiango.pooherencia;
 
-public class Profesor extends Persona {
+public final class Profesor extends Persona {
     private String asignatura;
 
     public String getAsignatura() {
@@ -16,7 +16,7 @@ public class Profesor extends Persona {
     }
 
     public Profesor(String nombre, String apellido, String asignatura) {
-        this(nombre,apellido);
+        this(nombre, apellido);
         this.asignatura = asignatura;
     }
 
@@ -26,11 +26,16 @@ public class Profesor extends Persona {
 
     @Override
     public String toString() {
+        String datosPersonales = super.toString();
         StringBuilder datosProfesor = new StringBuilder();
         datosProfesor.append("\t" + "Datos del Profesor" + "\n")
-                .append("Nombre: " + this.getNombre() + "\n")
-                .append("Apellido: " + this.getApellido() + "\n")
+                .append(datosPersonales)
                 .append("Asignatura: " + this.getAsignatura() + "\n");
         return datosProfesor.toString();
+    }
+
+    @Override
+    public String saludar() {
+        return "Buenos dias soy el profesor de " + getAsignatura() + ", mi nombre es: " + getNombre();
     }
 }

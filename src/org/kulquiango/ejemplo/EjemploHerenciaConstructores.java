@@ -4,6 +4,7 @@ import org.kulquiango.pooherencia.Alumno;
 import org.kulquiango.pooherencia.AlumnoInternacional;
 import org.kulquiango.pooherencia.Persona;
 import org.kulquiango.pooherencia.Profesor;
+import org.w3c.dom.ls.LSOutput;
 
 public class EjemploHerenciaConstructores {
     public static void main(String[] args) {
@@ -22,11 +23,18 @@ public class EjemploHerenciaConstructores {
         imprimir(alumno);
         imprimir(alumnoInternacional);
         imprimir(profesor);
+        System.out.println();
+        System.out.println();
+        System.out.println(alumno);
+        System.out.println(profesor);
+        System.out.println(alumnoInternacional);
     }
 
     public static void imprimir(Persona persona) {
         String imprimir = null;
+        String imprimirSobreEscritura = null;
         StringBuilder imprimirDatosDePersona = new StringBuilder();
+
         imprimirDatosDePersona.append("Nombre: " + persona.getNombre() + "\n")
                 .append("Apellido: " + persona.getApellido() + "\n")
                 .append("Edad: " + persona.getEdad() + "\n")
@@ -44,18 +52,38 @@ public class EjemploHerenciaConstructores {
             if (persona instanceof AlumnoInternacional) {
                 StringBuilder datosAlumnoInternacional = new StringBuilder();
                 datosAlumnoInternacional.append("Nota idiomas: " + ((AlumnoInternacional) persona).getNotaIdiomas() + "\n")
-                        .append("Pais: " + ((AlumnoInternacional) persona).getPais()+ "\n");
+                        .append("Pais: " + ((AlumnoInternacional) persona).getPais() + "\n");
                 imprimir += datosAlumnoInternacional;
-            }
 
+
+            }
+            imprimirSobreEscritura = sobreEscritura(persona);
         }
 
-        if (persona instanceof Profesor){
-            String datosProfesor =  "Asignatura: " + ((Profesor) persona).getAsignatura();
+        if (persona instanceof Profesor) {
+            String datosProfesor = "Asignatura: " + ((Profesor) persona).getAsignatura();
             imprimir += datosProfesor;
         }
 
         System.out.println(imprimir);
+        System.out.println("========Sobre escritura saludar=======");
+        System.out.println(persona.saludar());
+        System.out.println("========Sobre escritura saludar=======");
+        if (persona instanceof Alumno){
+            System.out.println(imprimirSobreEscritura);
+        }
+
+
     }
+
+    public static String sobreEscritura(Persona persona) {
+        StringBuilder imprimir = new StringBuilder();
+        imprimir.append("========Sobre escritura calcularPromedio=======\n")
+                .append(((Alumno)persona).calcularPromedio() + "\n")
+                .append("========Sobre escritura calcularPromedio=======\n");
+        return imprimir.toString();
+    }
+
+
 
 }
